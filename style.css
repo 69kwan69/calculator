@@ -1,0 +1,208 @@
+/* CSS resets */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html,
+body {
+    height: 100%;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: initial;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+:root {
+    --clr-accent-light: #ff7e53;
+    --clr-accent: #fe6430;
+    --clr-accent-hover: #ee5b2a;
+    --clr-accent-active: #e35323;
+
+    --clr-light-lv2: #e4e4e5;
+    --clr-light-lv2-hover: #d6d6da;
+    --clr-light-lv2-active: #c5c5ca;
+
+    --clr-dark-lv2: #18212a;
+    --clr-dark-lv2-hover: #10161e;
+    --clr-dark-lv2-active: #090c11;
+
+    --clr-dark-lv1: #36474f;
+}
+
+
+/* Utility Classes */
+
+
+/* Styling Elements */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    font-size: 1.5rem;
+}
+
+.calculator {
+    border-radius: .5rem;
+    width: 24rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    overflow: hidden;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 10rem;
+    padding: .7em;
+
+    background: var(--clr-dark-lv1);
+    color: var(--clr-light-lv2);
+
+    text-align: right;
+}
+
+.display .prev-operand {
+    width: 100%;
+    height: 30%;
+    opacity: .8;
+
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.display .curr-operand {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    width: 100%;
+    height: 70%;
+    font-size: 4rem;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    transition: .2s;
+}
+
+.input-buttons {
+    --spacing: .3em;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing);
+
+    padding: calc(var(--spacing) * 2);
+    width: 100%;
+
+    background: var(--clr-dark-lv2);
+}
+
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: .5em;
+    border: none;
+    border-radius: 2em;
+
+    background: var(--clr-dark-lv2);
+    color: var(--clr-light-lv2);
+
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--clr-dark-lv2-hover);
+}
+
+.btn:active {
+    background: var(--clr-dark-lv2-active);
+}
+
+
+.btn.ac {
+    background: var(--clr-accent);
+    grid-column: span 2;
+}
+
+
+.btn.operator {
+    background: var(--clr-light-lv2);
+    color: var(--clr-dark-lv2);
+}
+
+.btn.operator:hover {
+    background: var(--clr-light-lv2-hover);
+}
+
+.btn.operator:active {
+    background: var(--clr-light-lv2-active);
+}
+
+
+.btn.equals {
+    background: var(--clr-accent);
+}
+
+.btn.equals:hover {
+    background: var(--clr-accent-hover);
+}
+
+.btn.equals:active {
+    background: var(--clr-accent-active);
+}
+
+.btn>* {
+    pointer-events: none;
+}
