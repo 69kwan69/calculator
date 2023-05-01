@@ -56,6 +56,11 @@ class Calculator {
     }
 }
 
+function handleKeyboardInput(key) {
+    const calculatorBtn = document.querySelector(`[data-key='${key}']`);
+    if (calculatorBtn) calculatorBtn.click();
+}
+
 
 const prevOperand = document.querySelector('.prev-operand');
 const currOperand = document.querySelector('.curr-operand');
@@ -98,3 +103,5 @@ equalsBtn.addEventListener('click', () => {
     prevOperand.textContent = '';
     myCalculator.clear();
 })
+
+window.addEventListener('keyup', e => handleKeyboardInput(e.key));
